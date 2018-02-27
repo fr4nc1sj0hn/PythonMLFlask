@@ -28,5 +28,5 @@ def test():
      return jsonify("Hello World!")
 
 if __name__ == '__main__':
-     clf = joblib.load('C:/My/pyprojects/Models/model.pkl')
-     app.run(port=7000)
+     clf = joblib.load('C:/API/Model/model.pkl')
+     app.run(host='0.0.0.0', debug=True)
