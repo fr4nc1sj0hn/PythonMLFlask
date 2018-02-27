@@ -9,11 +9,8 @@ app = Flask(__name__)
 
 def Process(df):
 	df.dropna(axis=0,how='any',inplace=True)
-	df = pd.get_dummies(df,['Sector','SubSector'])
 	T = preprocessing.KernelCenterer().fit_transform(df.as_matrix())
-	model = Isomap(n_neighbors=5, n_components=2)
-	X_test = model.fit_transform(T)
-	return X_test
+	return T
 
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():
